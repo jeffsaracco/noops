@@ -41,7 +41,7 @@ const Width = 1024
 
 func run() {
 	cfg := pixelgl.WindowConfig{
-		Title:  "Pixel Rocks!",
+		Title:  "Hexbot",
 		Bounds: pixel.R(0, 0, Width, Height),
 		VSync:  true,
 	}
