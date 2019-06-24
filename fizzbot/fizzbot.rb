@@ -18,7 +18,6 @@ def main
   num = 1
   while answer_result['result'] == 'correct' do
     question_path = answer_result['nextQuestion']
-    puts "Question #{num}"
     question = get_json(question_path)
 
     answer = get_answer(question, num)
@@ -37,7 +36,6 @@ def get_json(path)
   response = Net::HTTP.get_response(build_uri(path))
   result = JSON.parse(response.body)
 
-  puts JSON.pretty_generate(result)
   result
 end
 
@@ -52,9 +50,8 @@ def post_json(path, body)
     http.request(post_request)
   end
 
-  puts "HTTP #{response.code}"
   result = JSON.parse(response.body)
-  puts JSON.pretty_generate(result)
+  puts result
   result
 end
 
@@ -79,7 +76,6 @@ def get_answer(question, num)
       end
     end
   end
-  # puts arr.join(' ').split('')
   arr.join(' ')
 end
 
